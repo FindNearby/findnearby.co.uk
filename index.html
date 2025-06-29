@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Nearby - Discover Local Amenities</title>
-    <meta http-equiv="refresh" content="0; url=https://findnearby.carrd.co">
     <script type="text/javascript">
-        window.location.href = "https://findnearby.carrd.co";
+        // Get the current hash (e.g., #privacy)
+        var hash = window.location.hash;
+        var baseUrl = "https://findnearby.carrd.co";
+        var redirectUrl = hash ? baseUrl + hash : baseUrl;
+        
+        // Redirect preserving the hash
+        window.location.replace(redirectUrl);
     </script>
 </head>
 <body>
