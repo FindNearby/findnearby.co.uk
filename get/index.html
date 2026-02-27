@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Find Nearby – Redirecting…</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; padding: 24px; line-height: 1.4; }
+    .card { max-width: 560px; margin: 0 auto; border: 1px solid #ddd; border-radius: 12px; padding: 18px; }
+    .code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 18px; padding: 10px 12px; background: #f6f6f6; border-radius: 10px; display: inline-block; }
+    button, a.btn { display: inline-block; padding: 10px 14px; border-radius: 10px; border: 1px solid #0d3b00; background: #0d3b00; color: #fff; text-decoration: none; margin-right: 8px; margin-top: 10px; }
+    a.btn.secondary { background: #fff; color: #0d3b00; }
+    .muted { color: #666; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Opening Find Nearby…</h2>
+    <p class="muted">If nothing happens, use the buttons below.</p>
+
+    <div id="fallback" style="display:none;">
+      <p><strong>Your referral code:</strong></p>
+      <div class="code" id="codeBox"></div>
+      <div>
+        <button id="copyBtn" type="button">Copy code</button>
+      </div>
+
+      <p style="margin-top:14px;"><strong>Download:</strong></p>
+      <a class="btn" id="androidBtn" href="#">Android (Google Play)</a>
+      <a class="btn secondary" id="iosBtn" href="#">iPhone/iPad (App Store)</a>
+
+      <p class="muted" style="margin-top:14px;">
+        After installing, open Find Nearby → Settings ⚙️ → Redeem referral code.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const code = (params.get('code') || '').trim().toUpperCase();
+
+      // TODO: replace when iOS app is live
+      const IOS_APP_STORE_URL = 'https://apps.apple.com/app/id0000000000';
+
+      const ANDROID_PACKAGE = 'com.find_nearby';
+      const PLAY_BASE = 'https://play.google.com/store/apps/details?id=' + ANDROID_PACKAGE;
+
+      // Build Play Store install referrer payload
+      const payload = 'utm_source=invite&utm_medium=smart_link&utm_campaign=referrals'
+        + (code ? ('&code=' + encodeURIComponent(code)) : '');
+      const playUrl = PLAY_BASE + '&referrer=' + encodeURIComponent(payload);
+
+      // iOS cannot pass referrer into the app without attribution/tracking.
+      const iosUrl = IOS_APP_STORE_URL;
+
+      // Device detection
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      const isAndroid = /android/i.test(ua);
+      const isiOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+      // Setup fallback UI
+      const fallback = document.getElementById('fallback');
+      const codeBox = document.getElementById('codeBox');
+      const copyBtn = document.getElementById('copyBtn');
+      const androidBtn = document.getElementById('androidBtn');
+      const iosBtn = document.getElementById('iosBtn');
+
+      androidBtn.href = playUrl;
+      iosBtn.href = iosUrl;
+      codeBox.textContent = code || '(no code provided)';
+
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(code);
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => copyBtn.textContent = 'Copy code', 1200);
+        } catch (e) {
+          alert('Copy failed. Please select and copy the code manually.');
+        }
+      });
+
+      // If no code, still redirect; fallback shows "(no code provided)"
+      // Redirect quickly, but show fallback if store URL is missing or device unknown.
+      const iosUrlLooksSet = !iosUrl.includes('id0000000000');
+
+      if (isAndroid) {
+        window.location.replace(playUrl);
+        setTimeout(() => fallback.style.display = 'block', 900);
+        return;
+      }
+
+      if (isiOS) {
+        // If you haven't set the real App Store URL yet, don't redirect blindly.
+        if (iosUrlLooksSet) {
+          window.location.replace(iosUrl);
+        }
+        fallback.style.display = 'block';
+        return;
+      }
+
+      // Unknown device → show chooser
+      fallback.style.display = 'block';
+    })();
+  </script>
+</body>
+</html>
