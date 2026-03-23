@@ -81,23 +81,17 @@
 
       // If no code, still redirect; fallback shows "(no code provided)"
       // Redirect quickly, but show fallback if store URL is missing or device unknown.
-      const iosUrlLooksSet = !iosUrl.includes('id0000000000');
-
       if (isAndroid) {
-        window.location.replace(playUrl);
-        setTimeout(() => fallback.style.display = 'block', 900);
-        return;
-      }
+  window.location.replace(playUrl);
+  setTimeout(() => fallback.style.display = 'block', 900);
+  return;
+}
 
-      if (isiOS) {
-        // If you haven't set the real App Store URL yet, don't redirect blindly.
-        if (iosUrlLooksSet) {
-          window.location.replace(iosUrl);
-        }
-        fallback.style.display = 'block';
-        return;
-      }
-
+if (isiOS) {
+  window.location.replace(iosUrl);
+  setTimeout(() => fallback.style.display = 'block', 900);
+  return;
+}
       // Unknown device → show chooser
       fallback.style.display = 'block';
     })();
