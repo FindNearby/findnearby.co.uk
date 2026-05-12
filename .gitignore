@@ -1,0 +1,15 @@
+# macOS junk
+.DS_Store
+__MACOSX/
+
+# Local zip backups
+*.zip
+
+# Editor folders
+.vscode/
+.idea/
+
+# Local private notes
+notes/
+drafts/
+README_LOCAL*

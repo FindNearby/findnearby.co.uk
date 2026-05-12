@@ -1,20 +1,307 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Nearby - Discover Local Amenities</title>
-    <script type="text/javascript">
-        // Get the current hash (e.g., #privacy)
-        var hash = window.location.hash;
-        var baseUrl = "https://findnearby.carrd.co";
-        var redirectUrl = hash ? baseUrl + hash : baseUrl;
-        
-        // Redirect preserving the hash
-        window.location.replace(redirectUrl);
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Nearby | Toilet, Parking and Useful Places Finder</title>
+  <meta name="description" content="Find Nearby helps you find toilets, parking, benches, playparks, defibrillators, GPs, hospitals and 20+ other useful places, with 1.16 million+ locations mapped across the UK and Ireland plus worldwide search support.">
+  <link rel="canonical" href="https://findnearby.co.uk/">
+  <meta property="og:title" content="Find Nearby | Toilet, Parking and Useful Places Finder">
+  <meta property="og:description" content="Find Nearby helps you find toilets, parking, benches, playparks, defibrillators, GPs, hospitals and 20+ other useful places, with 1.16 million+ locations mapped across the UK and Ireland plus worldwide search support.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://findnearby.co.uk/">
+  <meta property="og:site_name" content="Find Nearby">
+  <meta name="twitter:card" content="summary">
+  <meta name="apple-itunes-app" content="app-id=6757857891">
+  <link rel="icon" href="images/brand/app-icon.png">
+  <link rel="apple-touch-icon" href="images/brand/app-icon.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/download-options.js" defer></script>
+  <script>
+    (function () {
+      var hash = window.location.hash.toLowerCase();
+      var isLocalPreview = window.location.protocol === 'file:';
+
+      if (hash === '#privacy' || hash === '#privacy/') {
+        window.location.replace(isLocalPreview ? 'privacy.html' : '/privacy');
+      }
+
+      if (hash === '#terms' || hash === '#terms/') {
+        window.location.replace(isLocalPreview ? 'terms.html' : '/terms');
+      }
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Find Nearby",
+    "alternateName": "Find Nearby: Toilets & Parking",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "NavigationApplication",
+    "description": "Find Nearby helps you find toilets, parking, benches, playparks, defibrillators, GPs, hospitals and more. It has fast UK and Ireland coverage, with worldwide search support using public map data where available.",
+    "url": "https://findnearby.co.uk",
+    "downloadUrl": [
+      "https://apps.apple.com/us/app/find-nearby/id6757857891",
+      "https://play.google.com/store/apps/details?id=com.find_nearby"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "GBP"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Find Nearby Ltd",
+      "url": "https://findnearby.co.uk"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Find Nearby Ltd",
+    "url": "https://findnearby.co.uk",
+    "email": "info@findnearby.co.uk",
+    "logo": "https://findnearby.co.uk/images/brand/app-icon.png"
+  }
+  </script>
 </head>
 <body>
-    <p>If you are not redirected automatically, <a href="https://findnearby.carrd.co">click here</a>.</p>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="index.html" aria-label="Find Nearby home">
+        <img class="brand-logo" src="images/brand/app-icon.png" alt="" aria-hidden="true">
+        <span>Find Nearby</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="features.html">Features</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="coverage.html">Coverage</a>
+        <a href="community.html">Community</a>
+        <a href="pro.html">Pro</a>
+        <a href="faq.html">FAQ</a>
+        <a class="button-link smart-download-link" href="#download">Download the app</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-stack">
+        <div class="hero-copy">
+          <span class="kicker">1.16 million+ locations mapped across the UK and Ireland, plus worldwide search support</span>
+          <h1>Find toilets, parking, benches, playparks and more in seconds</h1>
+          <p class="hero-text">Need a toilet, parking space, bench, playpark, drinking water, defibrillator, GP, hospital, cash machine, chemist, bus stop or other everyday place? Find Nearby helps you search in seconds, with 1.16 million+ locations mapped across the UK and Ireland and worldwide search support using public map data where available.</p>
+          <div class="button-row" id="download">
+            <a class="button primary" href="https://apps.apple.com/app/id6757857891">Download on iPhone</a>
+            <a class="button" href="https://play.google.com/store/apps/details?id=com.find_nearby">Get it on Google Play</a>
+          </div>
+          <p class="trust-note">Free to download. No sign-up required. Key accessibility, family and health searches are free with no ads. Optional ad-free Pro unlocks everything.</p>
+        </div>
+
+        <div class="screenshot-showcase hero-screenshot-showcase" aria-label="Find Nearby app screenshots">
+          <figure class="screenshot-card">
+            <img src="images/screenshots/home-categories.jpg" alt="Find Nearby home screen showing buttons for parking, toilets, benches, playparks, water, cash machines, bike racks, bins, fuel and grit bins">
+            <figcaption><strong>Choose what you need</strong><span>Pick from practical categories in seconds.</span></figcaption>
+          </figure>
+          <figure class="screenshot-card">
+            <img src="images/screenshots/toilet-results.jpg" alt="Find Nearby map screen showing seven toilets found nearby in Glasgow">
+            <figcaption><strong>Find nearby results fast</strong><span>See useful locations on the map and compare what is closest.</span></figcaption>
+          </figure>
+          <figure class="screenshot-card">
+            <img src="images/screenshots/toilet-extra-info.jpg" alt="Find Nearby toilet detail screen showing address, free to use, wheelchair access, baby changing, directions and Street View buttons">
+            <figcaption><strong>Check useful details</strong><span>View address details, accessibility tags and directions where available.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section class="trust-strip container" aria-label="Why trust Find Nearby">
+      <div>
+        <strong>No account needed</strong>
+        <span>Start searching without creating a profile.</span>
+      </div>
+      <div>
+        <strong>Privacy-conscious</strong>
+        <span>No precise location history stored by us.</span>
+      </div>
+      <div>
+        <strong>Built in Glasgow</strong>
+        <span>Created by Find Nearby Ltd for real everyday journeys.</span>
+      </div>
+      <div>
+        <strong>Free key searches</strong>
+        <span>Accessible toilets, disabled parking, baby-changing toilets, hospitals, GPs and defibrillators are free.</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Useful for real-life “where’s the nearest...?” moments</h2>
+        <p class="section-intro">Find Nearby is built for families, disabled people, drivers, travellers, tourists and anyone who needs practical nearby places quickly. Search for toilets, accessible toilets, baby-changing toilets, parking, disabled parking, parent &amp; child parking, playparks, benches, defibrillators, GPs, hospitals and more.</p>
+
+        <div class="category-icon-strip" aria-label="Popular Find Nearby categories">
+          <div class="category-icon-card">
+            <img src="images/categories/toilet_button.png" alt="Toilets icon">
+            <span>Toilets</span>
+          </div>
+          <div class="category-icon-card">
+            <img src="images/categories/parking_button.png" alt="Parking icon">
+            <span>Parking</span>
+          </div>
+          <div class="category-icon-card">
+            <img src="images/categories/bench_button.png" alt="Benches icon">
+            <span>Benches</span>
+          </div>
+          <div class="category-icon-card">
+            <img src="images/categories/playground_button.png" alt="Playparks icon">
+            <span>Playparks</span>
+          </div>
+          <div class="category-icon-card">
+            <img src="images/categories/water_button.png" alt="Drinking water icon">
+            <span>Drinking water</span>
+          </div>
+          <div class="category-icon-card">
+            <img src="images/categories/fuel_button.png" alt="Fuel icon">
+            <span>Fuel</span>
+          </div>
+          <div class="category-icon-card">
+            <img src="images/categories/chemist_button.png" alt="Chemists icon">
+            <span>Chemists</span>
+          </div>
+          <div class="category-icon-card">
+            <img src="images/categories/ev_button.png" alt="EV charging icon">
+            <span>EV charging</span>
+          </div>
+          <div class="category-icon-card">
+            <img src="images/categories/atm_button.png" alt="Cash machines icon">
+            <span>Cash machines</span>
+          </div>
+          <div class="category-icon-card">
+            <img src="images/categories/bus_stop_button.png" alt="Bus stops icon">
+            <span>Bus stops</span>
+          </div>
+          <div class="category-icon-card">
+            <img src="images/categories/postbox_button.png" alt="Post boxes icon">
+            <span>Post boxes</span>
+          </div>
+          <div class="category-icon-card">
+            <img src="images/categories/recycling_centre_button.png" alt="Recycling centres icon">
+            <span>Recycling centres</span>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Find what you need fast</h3>
+            <p>Search near your current location or look up another area before leaving home.</p>
+          </article>
+          <article class="card">
+            <h3>Plan journeys with less stress</h3>
+            <p>Useful for days out, long drives, unfamiliar towns, family trips and everyday journeys.</p>
+          </article>
+          <article class="card">
+            <h3>Free key searches</h3>
+            <p>Find Nearby is a general-purpose finder, but key accessibility, family and health searches are kept free with no ads.</p>
+          </article>
+          <article class="card">
+            <h3>Directions when you choose a place</h3>
+            <p>See results on the map, compare nearby options and get directions to the place you choose.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section highlight-band">
+      <div class="container">
+        <h2>Fast UK and Ireland results, with worldwide search support</h2>
+        <p class="section-intro">Find Nearby currently includes 1,165,337 mapped locations in its fast UK and Ireland coverage database, covering Scotland, England, Wales, Northern Ireland and the Republic of Ireland. Searches outside the UK and Ireland are also supported using public map data where available, but may be slower and less complete.</p>
+        <div class="stats-grid">
+          <div class="stat"><strong>315k+</strong><span>Bus stops</span></div>
+          <div class="stat"><strong>229k+</strong><span>Parking locations</span></div>
+          <div class="stat"><strong>166k+</strong><span>Benches</span></div>
+          <div class="stat"><strong>91k+</strong><span>Post boxes</span></div>
+          <div class="stat"><strong>63k+</strong><span>Bicycle parking spots</span></div>
+          <div class="stat"><strong>48k+</strong><span>Playgrounds</span></div>
+          <div class="stat"><strong>23k+</strong><span>Defibrillators</span></div>
+          <div class="stat"><strong>14k+</strong><span>Public toilets</span></div>
+        </div>
+        <p><a class="button" href="coverage.html">See fast UK and Ireland coverage counts</a></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div class="feature-block">
+          <h3>Free for key accessibility and family-focused searches</h3>
+          <ul class="check-list">
+            <li>Accessible toilets</li>
+            <li>Disabled parking</li>
+            <li>Baby-changing toilets</li>
+            <li>Parent &amp; child parking</li>
+            <li>Defibrillators</li>
+            <li>Hospitals</li>
+            <li>GPs / doctors</li>
+          </ul>
+        </div>
+        <div class="feature-block">
+          <h3>How it works</h3>
+          <ol class="simple-list">
+            <li>Choose what you want to find.</li>
+            <li>Use GPS or search a place name, town or postcode.</li>
+            <li>See nearby results on the map and get directions.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section highlight-band">
+      <div class="container grid-2">
+        <div class="feature-block">
+          <h3>Community, charity and press information</h3>
+          <p>Find Nearby is a broad everyday finder, but some searches are kept free because they matter most in urgent, accessibility, family and healthcare situations.</p>
+          <p><a class="button" href="community.html">Community and press information</a></p>
+        </div>
+        <div class="feature-block">
+          <h3>Help improve map data</h3>
+          <p>Find Nearby uses public map data, including OpenStreetMap. If something is missing or wrong, improving OpenStreetMap directly or leaving an OpenStreetMap Note can help everyone who relies on public map data.</p>
+          <p><a class="button" href="community.html#map-updates">Improve public map data</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Built in Glasgow, made for everyday journeys</h2>
+          <p>Find Nearby began as a simple idea to find a nearby bench more easily, then grew into an app designed to help people find useful public places with less stress and more confidence — with fast mapped results across the UK and Ireland and worldwide search support where public map data is available.</p>
+          <div class="button-row">
+            <a class="button primary" href="https://apps.apple.com/app/id6757857891">Download on iPhone</a>
+            <a class="button" href="https://play.google.com/store/apps/details?id=com.find_nearby">Get it on Google Play</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Find Nearby</h3>
+        <p>Toilets, parking, benches and more in seconds.</p>
+        <p><a href="mailto:info@findnearby.co.uk">info@findnearby.co.uk</a></p>
+      </div>
+      <div>
+        <p><a href="features.html">Features</a></p>
+        <p><a href="accessibility.html">Accessibility</a></p>
+        <p><a href="coverage.html">Coverage</a></p>
+        <p><a href="community.html">Community</a></p>
+        <p><a href="pro.html">Find Nearby Pro</a></p>
+        <p><a href="faq.html">FAQ</a></p>
+        <p><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
